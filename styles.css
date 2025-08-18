@@ -176,50 +176,50 @@ a:hover, a:active, a:focus { text-decoration: none; }
   :root { --container: 390px; }
   .nav-inner { 
     height: 56px; 
-    padding: 0 6px;
-    gap: 3px;
+    padding: 0 4px;
+    gap: 2px;
     flex-wrap: nowrap;
   }
   .nav-links { 
-    gap: 3px; 
+    gap: 2px; 
     flex-shrink: 0;
     display: flex;
   }
   .nav-links .btn { 
-    height: 26px; 
-    padding: 0 6px;
-    font-size: 11px;
+    height: 24px; 
+    padding: 0 4px;
+    font-size: 10px;
     min-width: fit-content;
   }
   .nav-links .btn p {
-    font-size: 11px;
+    font-size: 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .btn { 
-    height: 26px; 
-    padding: 0 6px;
-    font-size: 11px;
+    height: 24px; 
+    padding: 0 4px;
+    font-size: 10px;
     min-width: fit-content;
   }
   .btn p {
-    font-size: 11px;
+    font-size: 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .brand { 
-    min-width: 100px; 
+    min-width: 110px; 
     flex-shrink: 0;
   }
   .logo-img { 
-    height: 100px; 
+    height: 120px; 
     width: auto; 
   }
   .spacer {
     flex: 1;
-    min-width: 3px;
+    min-width: 2px;
   }
   .section { padding: 32px 0; }
   .grid-portfolio { grid-template-columns: 1fr; }
@@ -231,36 +231,36 @@ a:hover, a:active, a:focus { text-decoration: none; }
 /* Extra small mobile */
 @media (max-width: 480px) {
   .nav-inner { 
-    padding: 0 4px;
-    gap: 2px;
+    padding: 0 3px;
+    gap: 1px;
   }
   .nav-links { 
-    gap: 2px; 
+    gap: 1px; 
   }
   .nav-links .btn { 
-    height: 24px; 
-    padding: 0 5px;
-    font-size: 10px;
+    height: 22px; 
+    padding: 0 3px;
+    font-size: 9px;
   }
   .nav-links .btn p {
-    font-size: 10px;
+    font-size: 9px;
   }
   .btn { 
-    height: 24px; 
-    padding: 0 5px;
-    font-size: 10px;
+    height: 22px; 
+    padding: 0 3px;
+    font-size: 9px;
   }
   .btn p {
-    font-size: 10px;
+    font-size: 9px;
   }
   .brand { 
-    min-width: 80px; 
+    min-width: 100px; 
   }
   .logo-img { 
-    height: 60px; 
+    height: 90px; 
   }
   .spacer {
-    min-width: 2px;
+    min-width: 1px;
   }
 }
 
