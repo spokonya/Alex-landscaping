@@ -23,15 +23,22 @@
   <body class="about-page">
     <header class="site-nav">
       <div class="container nav-inner">
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Open navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
         <a class="brand logo-header" href="./index.html" aria-label="Alex Blagrove Landscaping & Lawn Service">
-          <img class="logo-img" src="./assets/alex logo.png" alt="" />
+          <img class="logo-img" src="./assets/alex-logo-new.png" alt="Alex Blagrove Landscaping & Lawn Service" />
         </a>
-        <nav class="nav-links">
-          <a class="btn btn-ghost" href="./about.html"><p>About Us</p></a>
-          <a class="btn btn-ghost" href="./work.html"><p>Our Work</p></a>
-        </nav>
+        <a class="phone-link" href="tel:+15854484693">Call us today: (585) 448-4693</a>
         <div class="spacer"></div>
         <a class="btn btn-primary" href="./schedule.html"><p>Get in Touch</p></a>
+        <nav class="mobile-nav" id="mobile-nav">
+          <a class="btn btn-ghost" href="./about.html"><p>About Us</p></a>
+          <a class="btn btn-ghost" href="./work.html"><p>Our Work</p></a>
+          <a class="btn btn-primary" href="./schedule.html"><p>Get in Touch</p></a>
+        </nav>
       </div>
     </header>
 
@@ -47,9 +54,10 @@
               <div class="body muted">Owner</div>
             </div>
             <div class="about-text">
-              <p class="body">My name is Alex Blagrove, and I started this business with a simple goal: to bring out the natural beauty in every lawn and landscape I work on. With years of experience and a genuine passion for outdoor spaces, I take pride in delivering results that make homeowners feel proud of their property.</p>
-              <p class="body">At Alex Blagrove Landscaping & Lawn Service, I focus on reliability, quality, and care in everything I do. Whether it’s routine lawn maintenance or a complete landscaping project, I believe every job deserves attention to detail and a professional touch.</p>
-              <p class="body">I know how important your home is to you, and I treat every yard as if it were my own. My mission is to create outdoor spaces that are not only healthy and functional but also inviting and enjoyable for you and your family.</p>
+              <p class="body">I’m Alex Blagrove, and since 2016 I’ve been helping families and businesses transform their outdoor spaces into places they’re proud to call their own. What started with a simple passion for hard work and quality has grown into a trusted landscaping and hardscaping company serving Brighton, NY and the surrounding communities.</p>
+              <p class="body">With nearly a decade of hands-on experience, I take pride in delivering results that balance beauty, function, and long-term value. From complete landscape makeovers to detailed maintenance, my mission is always the same: to create outdoor spaces that enhance everyday living.</p>
+              <p class="body">As a husband, father, and man of faith, I run my business with integrity, transparency, and a commitment to excellence. My goal is not only to improve properties, but also to build lasting relationships with the families and homeowners I serve.</p>
+              <p class="body">At Alex Blagrove Landscaping & Lawn Service, we believe your outdoor space should be more than just a yard—it should be a reflection of your lifestyle, a gathering place for family and friends, and an investment you can be proud of.</p>
             </div>
             <div class="about-ctas">
               <a class="btn btn-primary" href="./schedule.html"><p>Get in touch</p></a>
@@ -106,6 +114,36 @@
         </div>
       </div>
     </footer>
+    
+    <script>
+      // Hamburger menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        hamburgerMenu.addEventListener('click', function() {
+          hamburgerMenu.classList.toggle('active');
+          mobileNav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const mobileNavLinks = mobileNav.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+          });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!hamburgerMenu.contains(event.target) && !mobileNav.contains(event.target)) {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+          }
+        });
+      });
+    </script>
   </body>
   
 </html>
