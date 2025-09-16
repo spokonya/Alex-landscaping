@@ -78,6 +78,11 @@ a:hover, a:active, a:focus { text-decoration: none; }
   text-decoration: none;
 }
 
+/* Mobile phone banner - hidden on desktop */
+.mobile-phone-banner {
+  display: none;
+}
+
 /* Hamburger Menu Styles */
 .hamburger-menu {
   display: flex;
@@ -133,6 +138,7 @@ a:hover, a:active, a:focus { text-decoration: none; }
   z-index: 15;
   box-shadow: 4px 0 12px rgba(0,0,0,0.1);
 }
+
 
 .mobile-nav.active {
   left: 0;
@@ -354,30 +360,95 @@ a:hover, a:active, a:focus { text-decoration: none; }
 /* Mobile */
 @media (max-width: 600px) {
   :root { --container: 390px; }
+  
+  /* Mobile header layout - simplified and clean */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 10;
+  }
+  
   .nav-inner { 
-    height: 64px; 
-    padding: 0 8px;
+    height: 56px; /* Reduced height for mobile */
+    padding: 0 12px;
     gap: 8px;
     flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
   }
+  
+  /* Hide phone number in header on mobile - will show in banner below */
   .phone-link {
-    font-size: 18px;
-    padding: 6px 8px;
+    display: none;
   }
+  
   .hamburger-menu {
     width: 28px;
     height: 28px;
-    left: 12px;
+    position: static;
+    transform: none;
+    flex-shrink: 0;
   }
+  
   .mobile-nav {
     width: 220px;
+    top: 56px; /* Match the reduced header height */
+    height: calc(100vh - 56px);
   }
+  
   .brand {
-    margin-left: 50px; /* Adjusted for smaller hamburger menu */
+    margin-left: 0; /* Remove margin since hamburger is now static */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 0; /* Allow shrinking */
   }
+  
+  .logo-img { 
+    height: 80px; /* Much smaller for mobile */
+    width: auto; 
+    max-width: 100%;
+  }
+  
   .btn-primary {
-    margin-right: 12px; /* Adjusted for mobile */
+    margin-right: 0;
+    height: 36px;
+    padding: 0 16px;
+    font-size: 14px;
+    flex-shrink: 0;
   }
+  
+  .btn-primary p {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .spacer {
+    display: none; /* Not needed in mobile layout */
+  }
+  
+  /* Mobile phone banner below header */
+  .mobile-phone-banner {
+    display: block;
+    background: #f8f9fa;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 8px 16px;
+    text-align: center;
+  }
+  
+  .mobile-phone-banner .phone-link {
+    display: inline-block;
+    font-size: 16px;
+    padding: 4px 8px;
+    position: static;
+    transform: none;
+    color: #111;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
   .nav-links { 
     gap: 8px; 
     flex-shrink: 0;
@@ -407,18 +478,7 @@ a:hover, a:active, a:focus { text-decoration: none; }
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .brand { 
-    min-width: 140px; 
-    flex-shrink: 0;
-  }
-  .logo-img { 
-    height: 140px; 
-    width: auto; 
-  }
-  .spacer {
-    flex: 1;
-    min-width: 8px;
-  }
+  
   .section { padding: 32px 0; }
   .grid-portfolio { grid-template-columns: 1fr; }
   .grid-item.wide { grid-column: auto; padding-top: 100%; }
@@ -432,27 +492,38 @@ a:hover, a:active, a:focus { text-decoration: none; }
 /* Extra small mobile */
 @media (max-width: 480px) {
   .nav-inner { 
-    padding: 0 6px;
+    padding: 0 8px;
     gap: 6px;
   }
-  .phone-link {
-    font-size: 16px;
-    padding: 4px 6px;
-  }
+  
   .hamburger-menu {
     width: 26px;
     height: 26px;
-    left: 10px;
   }
+  
   .mobile-nav {
     width: 200px;
   }
-  .brand {
-    margin-left: 45px; /* Adjusted for extra small hamburger menu */
+  
+  .logo-img { 
+    height: 70px; /* Even smaller for extra small screens */
   }
+  
   .btn-primary {
-    margin-right: 10px; /* Adjusted for extra small mobile */
+    height: 32px;
+    padding: 0 12px;
+    font-size: 13px;
   }
+  
+  .btn-primary p {
+    font-size: 13px;
+  }
+  
+  .mobile-phone-banner .phone-link {
+    font-size: 15px;
+    padding: 6px 8px;
+  }
+  
   .nav-links { 
     gap: 6px; 
   }
@@ -471,15 +542,6 @@ a:hover, a:active, a:focus { text-decoration: none; }
   }
   .btn p {
     font-size: 11px;
-  }
-  .brand { 
-    min-width: 120px; 
-  }
-  .logo-img { 
-    height: 120px; 
-  }
-  .spacer {
-    min-width: 6px;
   }
 }
 
@@ -749,5 +811,32 @@ a:hover, a:active, a:focus { text-decoration: none; }
 .about-portrait {
   position: relative;
   overflow: hidden;
+}
+
+/* Clickable feature styles */
+.clickable-feature {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: var(--radius-20);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.clickable-feature:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.clickable-feature:hover .feature-text {
+  transform: translateX(6px);
+}
+
+.clickable-feature:hover .feature-image {
+  transform: scale(1.05);
+}
+
+.clickable-feature .feature-image {
+  transition: transform 0.3s ease;
 }
 
