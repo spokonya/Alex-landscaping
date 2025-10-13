@@ -35,6 +35,7 @@
         <div class="spacer"></div>
         <a class="btn btn-primary" href="./schedule.html"><p>Get in Touch</p></a>
         <nav class="mobile-nav" id="mobile-nav">
+          <a class="btn btn-ghost" href="./index.html"><p>Home</p></a>
           <a class="btn btn-ghost" href="./about.html"><p>About Us</p></a>
           <a class="btn btn-ghost" href="./work.html"><p>Our Work</p></a>
           <a class="btn btn-primary" href="./schedule.html"><p>Get in Touch</p></a>
@@ -94,6 +95,75 @@
         </a>
       </section>
 
+      <!-- Reviews -->
+      <section class="section reviews" id="reviews">
+        <div class="container">
+          <h3 class="heading-lg">What our customers say</h3>
+          <!-- <div class='sk-ww-google-reviews' data-embed-id='25604108'></div> -->
+          
+          <!-- Manual Reviews Carousel -->
+          <div class="reviews-carousel">
+            <div class="reviews-container">
+              <div class="review-card active">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">
+                  "Alex and his team did some clean-up of an overgrown area on my patio. I found them to be very thorough and quick to schedule me. We went back and forth on the scope of the work to find something that worked for my budget, which I appreciated. Additionally, the scheduling and proposal software was top notch, which really made the process easier. My patio looks great, and I'll be using them in the future for my landscaping needs. Highly recommend!"
+                </div>
+                <div class="review-author">- Neal L</div>
+              </div>
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">
+                  "Wild grape vines, morning glories, overgrown grass and every weed you can think of didn't have a chance w Alex. My backyard was a literal jungle and you could have swung from the garage to the house. The front garden, though we tried to maintain it, was looking pretty sloppy. My daughter recommended Alex's company after they transformed her yard. Now my home looks wonderful."
+                </div>
+                <div class="review-author">- Rosemary B</div>
+              </div>
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">
+                  "Alex was great! We had multiple delays that kept us from scheduling and he was very patient with us. Now that the project is complete, everything looks amazing!! It's like a whole new yard. Thank you for your hard work!!! Will definitely recommend!"
+                </div>
+                <div class="review-author">- Skye S</div>
+              </div>
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">
+                  "Alex and his helper did a great job on our power washing our house. He kept in touch with us all the way. They knew what they were doing. The house looks great. I would recommend them to anyone."
+                </div>
+                <div class="review-author">- Pat H</div>
+              </div>
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">
+                  "I am not sure I have ever had the pleasure of working with someone so reliable, talented and personable. If you want the best...call Alex. He is truly remarkable at what he does!!!!"
+                </div>
+                <div class="review-author">- Mary F</div>
+              </div>
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">
+                  "Alex was super easy to work with! Communication was great and the job was done way faster than anticipated."
+                </div>
+                <div class="review-author">- Arianna S</div>
+              </div>
+            </div>
+            
+            <div class="carousel-nav">
+              <button class="nav-btn prev-btn" onclick="changeReview(-1)">‹</button>
+              <div class="nav-dots">
+                <span class="dot active" onclick="currentReview(1)"></span>
+                <span class="dot" onclick="currentReview(2)"></span>
+                <span class="dot" onclick="currentReview(3)"></span>
+                <span class="dot" onclick="currentReview(4)"></span>
+                <span class="dot" onclick="currentReview(5)"></span>
+                <span class="dot" onclick="currentReview(6)"></span>
+              </div>
+              <button class="nav-btn next-btn" onclick="changeReview(1)">›</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA -->
       <section class="section cta">
         <div class="container cta-inner">
@@ -136,6 +206,10 @@
             </ul>
           </div>
         </div>
+        
+        <div class="footer-copyright">
+          <p>© 2022–2025 Alex Blagrove Landscaping & Lawn Service. All Rights Reserved.</p>
+        </div>
       </div>
     </footer>
     
@@ -168,6 +242,56 @@
         });
       });
     </script>
+    
+    <!-- Manual Reviews Carousel JavaScript -->
+    <script>
+      let currentReviewIndex = 0;
+      const reviewCards = document.querySelectorAll('.review-card');
+      const dots = document.querySelectorAll('.dot');
+      const totalReviews = reviewCards.length;
+
+      function showReview(index) {
+        // Hide all review cards
+        reviewCards.forEach(card => {
+          card.classList.remove('active');
+        });
+        
+        // Remove active class from all dots
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        
+        // Show current review card
+        reviewCards[index].classList.add('active');
+        dots[index].classList.add('active');
+      }
+
+      function changeReview(direction) {
+        currentReviewIndex += direction;
+        
+        // Loop around if at beginning or end
+        if (currentReviewIndex >= totalReviews) {
+          currentReviewIndex = 0;
+        } else if (currentReviewIndex < 0) {
+          currentReviewIndex = totalReviews - 1;
+        }
+        
+        showReview(currentReviewIndex);
+      }
+
+      function currentReview(index) {
+        currentReviewIndex = index - 1;
+        showReview(currentReviewIndex);
+      }
+
+      // Auto-advance carousel every 5 seconds
+      setInterval(() => {
+        changeReview(1);
+      }, 5000);
+    </script>
+    
+    <!-- SociableKIT Google Reviews Widget (commented out) -->
+    <!-- <script src='https://widgets.sociablekit.com/google-reviews/widget.js' defer></script> -->
   </body>
   
 </html>
