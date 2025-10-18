@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /reviews-admin.html
+Disallow: /test-images.html
+
+# Sitemap location
+Sitemap: https://alexblagrovelandscaping.com/sitemap.xml
+
