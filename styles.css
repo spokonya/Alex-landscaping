@@ -511,11 +511,25 @@ a:hover, a:active, a:focus { text-decoration: none; }
   }
   
   .section { padding: 32px 0; }
-  .grid-portfolio { grid-template-columns: 1fr; }
+  .grid-portfolio { grid-template-columns: 1fr; display: flex; flex-direction: column; }
   .grid-item.wide { grid-column: auto; padding-top: 100%; }
   .portfolio-section { margin-bottom: 24px; }
   .section-header { margin-bottom: 12px; }
   .placeholder-text { font-size: 12px; padding: 12px; }
+  
+  /* Reorder landscape before/after photos on mobile - pairs at top */
+  #landscape .grid-portfolio .grid-item { order: 100; } /* Default order for all items */
+  #landscape .grid-portfolio .landscape-before-1 { order: 1 !important; }
+  #landscape .grid-portfolio .landscape-after-1 { order: 2 !important; }
+  #landscape .grid-portfolio .landscape-before-2 { order: 3 !important; }
+  #landscape .grid-portfolio .landscape-after-2 { order: 4 !important; }
+  
+  /* Reorder hardscape before/after photos on mobile - pair at top */
+  #hardscape .grid-portfolio .grid-item { order: 100; } /* Default order for all items */
+  #hardscape .grid-portfolio .hardscape-before { order: 1 !important; }
+  #hardscape .grid-portfolio .hardscape-after { order: 2 !important; }
+  #hardscape .grid-portfolio .hardscape-other-1 { order: 3 !important; }
+  
   .footer-inner { grid-template-columns: 1fr; }
   .footer-columns { grid-template-columns: 1fr 1fr; }
   .footer-copyright p { font-size: 12px; }
